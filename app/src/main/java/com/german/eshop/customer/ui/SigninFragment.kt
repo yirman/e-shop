@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.german.eshop.customer.R
+import com.german.eshop.customer.databinding.FragmentSigninBinding
 
 
 class SigninFragment : Fragment() {
+
+    private lateinit var binding: FragmentSigninBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,9 +23,10 @@ class SigninFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signin, container, false)
+    ): View {
+        binding = FragmentSigninBinding.inflate(inflater, container, false)
+        binding.title.text = "${getString(R.string.app_name).toCharArray()[0]}!"
+        return binding.root
     }
 
     companion object {

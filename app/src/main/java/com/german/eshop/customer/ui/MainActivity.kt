@@ -1,5 +1,6 @@
 package com.german.eshop.customer.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
         binding.navView.menu.findItem(R.id.sign_in).setOnMenuItemClickListener {
             binding.drawerLayout.close()
+            startActivity(Intent(this, LoginActivity::class.java))
             true
         }
     }

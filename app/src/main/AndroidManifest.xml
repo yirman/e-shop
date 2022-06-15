@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EShop.NoAppBar">
         <activity
+            android:name=".ui.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
