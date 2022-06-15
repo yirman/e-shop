@@ -14,8 +14,6 @@ import com.german.eshop.customer.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var appBarConfiguration: AppBarConfiguration
-
     private lateinit var navController : NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        setupNavigationController()
         setupUI()
+        setupNavigationController()
     }
 
     private fun setupUI(){
@@ -43,18 +41,10 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
-//        binding.navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener {
-////            firebaseAuth.currentUser.providerId   SABER EN CUAL MIERDA ESTÁ LOGUEADO
-//            LoginManager.getInstance().logOut();
-//            googleSignInClient?.signOut()?.addOnCompleteListener {
-//                if(it.isSuccessful){
-//                    firebaseAuth?.signOut()
-//                    navController.navigate(R.id.action_homeFragment_to_loginActivity)
-//                    finish()
-//                }
-//            }
-//            true
-//        }
+        binding.navView.menu.findItem(R.id.sign_in).setOnMenuItemClickListener {
+            binding.drawerLayout.close()
+            true
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean = NavigationUI.navigateUp(navController, binding.drawerLayout)

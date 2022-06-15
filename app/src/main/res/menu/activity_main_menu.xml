@@ -7,6 +7,10 @@
             android:title="@string/your_account">
             <menu>
                 <item
+                    android:id="@+id/sign_in"
+                    android:icon="@drawable/ic_baseline_person_24"
+                    android:title="@string/sign_in" />
+                <item
                     android:id="@+id/cartFragment"
                     android:icon="@drawable/ic_baseline_shopping_cart_24"
                     android:title="@string/cart" />

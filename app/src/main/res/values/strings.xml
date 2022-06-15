@@ -4,5 +4,6 @@
     <string name="cart">Carrito</string>
     <string name="welcome">¡Bienvenido!</string>
     <string name="your_account">Tu cuenta</string>
+    <string name="sign_in">Iniciar sesión</string>
 
 </resources>
