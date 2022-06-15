@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">e-Shop</string>
+    <string name="settings">Ajustes</string>
+    <string name="cart">Carrito</string>
+    <string name="welcome">¡Bienvenido!</string>
+    <string name="your_account">Tu cuenta</string>
+
 </resources>
