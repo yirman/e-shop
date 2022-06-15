@@ -1,4 +1,4 @@
-package com.german.eshop.customer.ui
+package com.german.eshop.customer.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

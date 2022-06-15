@@ -1,4 +1,4 @@
-package com.german.eshop.customer.ui
+package com.german.eshop.customer.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
