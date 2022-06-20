@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.german.eshop.customer.databinding.FragmentProductsBinding
 import com.german.eshop.customer.model.Department
 import com.german.eshop.customer.ui.viewmodel.MainViewModel
@@ -18,10 +19,14 @@ class ProductsFragment : Fragment() {
     private lateinit var binding: FragmentProductsBinding
     private val viewModel: MainViewModel by viewModels()
 
+    private lateinit var search: String
+    private lateinit var idFilter: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
+            idFilter = it.get("idFilter").toString()
+            search = it.get("search").toString()
         }
     }
 
@@ -30,21 +35,35 @@ class ProductsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentProductsBinding.inflate(inflater, container, false)
-        viewModel.departments.observe(viewLifecycleOwner){ departments ->
-            buildDepartmentList(departments)
-        }
+        setupUI()
         return binding.root
+    }
+
+    private fun setupUI(){
+        if(!isFilterApplied()) {
+            viewModel.departments.observe(viewLifecycleOwner) { departments -> buildDepartmentList(departments) }
+        }
+        else{
+            binding.departmentsChipGroup.visibility = View.GONE
+        }
     }
 
     private fun buildDepartmentList(departments: List<Department>){
         departments.forEach { department ->
-            Chip(requireContext()).apply {
+            val departmentChip = Chip(requireContext()).apply {
                 text = department.name?.get(viewModel.deviceLanguage)
                 tag = department.id
-                binding.departments.addView(this)
+                setOnClickListener {
+                    findNavController().navigate(
+                        ProductsFragmentDirections.actionProductFragmentSelf(tag.toString())
+                    )
+                }
             }
+            binding.departmentsChipGroup.addView(departmentChip)
         }
     }
+
+    private fun isFilterApplied() = !idFilter.isEmpty()
 
     companion object {
         @JvmStatic
