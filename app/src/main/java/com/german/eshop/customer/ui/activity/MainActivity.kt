@@ -3,6 +3,8 @@ package com.german.eshop.customer.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -26,6 +28,16 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         setupUI()
         setupNavigationController()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.activity_main_search, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        onSearchRequested()
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setupUI(){
