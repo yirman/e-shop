@@ -7,5 +7,6 @@
     <string name="sign_in">Iniciar sesión</string>
     <string name="email">Correo electrónico</string>
     <string name="password">Contraseña</string>
+    <string name="search_hint">Búsqueda</string>
 
 </resources>
