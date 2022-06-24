@@ -51,7 +51,7 @@ class ProductsFragment : Fragment() {
 
     private fun setupUI(){
         adapter = ProductAdapter(FirestoreRecyclerOptions.Builder<Product>().productOptions(FirebaseFirestore.getInstance().queryProducts()))
-        binding.productsList.layoutManager = FirebaseLinearLayoutManager(requireActivity())
+        binding.productsList.layoutManager = FirebaseLinearLayoutManager(requireActivity(), 2)
         adapter.setHasStableIds(true)
         binding.productsList.adapter = adapter
 //        binding.productsList.itemAnimator = null
