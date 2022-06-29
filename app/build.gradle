@@ -63,6 +63,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-firestore:24.1.2'
     implementation 'com.firebaseui:firebase-ui-firestore:8.0.1'
+    implementation "androidx.paging:paging-runtime-ktx:3.2.0-alpha01"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.1"
     // FirebaseUI for Firebase Realtime Database
 //    implementation 'com.firebaseui:firebase-ui-database:8.0.1'
     // FirebaseUI for Firebase Auth
